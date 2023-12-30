@@ -1,4 +1,4 @@
-from models import Point, Line, Circle, Polygon
+from models import Point, Line, Circle, Polygon, Triangle
 
 class CartesianBoard():
 
@@ -10,6 +10,7 @@ class CartesianBoard():
         self.pontos= {}
         self.lines= {}
         self.circles= {}
+        self.triangles={}
         self.polygons= {}
         
     
@@ -34,6 +35,10 @@ class CartesianBoard():
                 
         self.circles["circle" + str(circle.n)]= circle
 
+    def inserTriangle(self, triangle : Triangle):
+                        
+        self.triangles["triangle" + str(triangle.n)]= triangle  
+
     def inserPolygon(self, polygon : Polygon):
                     
         self.polygons["polygon" + str(polygon.n)]= polygon
@@ -50,6 +55,10 @@ class CartesianBoard():
     def removeCircle(self, nome):
         
         del self.circles[nome]
+
+    def removeTriangle(self, nome):
+            
+            del self.triangles[nome]
     
     def removePolygon(self, nome):
         
@@ -73,6 +82,11 @@ class CartesianBoard():
             print('\nEste plano cartesiano possui os seguintes circles:\n')
             for circle in self.circles.keys():
                 print(circle)
+    def showTriangles(self):
+                
+                print('\nEste plano cartesiano possui os seguintes triangles:\n')
+                for triangle in self.triangles.keys():
+                    print(triangle)
 
     def showPolygons(self):
 

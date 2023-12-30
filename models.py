@@ -170,6 +170,45 @@ class Circle():
     def is_inside(self, point: 'Point'):
         return self.__center.distance_to(point) <= self.__radius
     
+
+class Triangle():
+    def __init__(self, point1: 'Point', point2: 'Point', point3: 'Point', n: int):
+        self.__point1 = point1
+        self.__point2 = point2
+        self.__point3 = point3
+        self.__n = n
+        self.triangles = {}
+    
+    def __str__(self):
+        return f'Triangle{self.__n} has ({self.__point1},{self.__point2},{self.__point3})'
+    
+    @property
+    def points(self):
+        return (self.__point1, self.__point2, self.__point3)
+    
+    @points.setter
+    def points(self, points):
+        self.__point1, self.__point2, self.__point3 = points
+
+    @property
+    def n(self):
+        return self.__n
+    
+    @n.setter
+    def n(self, n):
+        self.__n = n
+
+    @classmethod #nao preciso do ponto instanciado
+    def pedir_n(self):
+        return int(input("Digite o n do triangulo: "))
+
+# triagulo = Triangle(Point(1,2,1), Point(2,3,2), Point(3,4,3), 1)
+# print(triagulo)
+# triagulo.points = Point(1,1,1), Point(2,2,2), Point(3,3,3)
+
+# print(triagulo)
+
+    
 # lista de linhas
 from typing import List
 

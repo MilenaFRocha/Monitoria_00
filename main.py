@@ -1,5 +1,5 @@
 from views import TelaMain, TelaCreateForms
-from models import Point, Line, Circle, Polygon
+from models import Point, Line, Circle, Polygon, Triangle
 from controller import CartesianBoard
 
 telaform = TelaCreateForms()
@@ -38,8 +38,15 @@ while comando != 5:
                     circulo = Circle(ponto, raio, n)
                     carte.inserCircle(circulo)
                     pass
-
+                
                 case 4:
+                    ponto1 = carte.criar_inserir_ponto()
+                    ponto2 = carte.criar_inserir_ponto()
+                    ponto3 = carte.criar_inserir_ponto()
+                    n = Triangle.pedir_n()
+                    triangulo = Triangle(ponto1, ponto2, ponto3,n)
+                    carte.inserTriangle(triangulo)
+                case 5:
                     pontos = []
                     numero = int(input("Quantos lados tem o poligono?"))
                     for i in range(numero):
@@ -51,9 +58,7 @@ while comando != 5:
 
                     pass
 
-                case 5:
-                    print("Saindo...")
-                    exit()
+                
 
         case 2:
             print("Qual opção deseja ler?")
@@ -75,8 +80,13 @@ while comando != 5:
                     print("Circulos:")
                     carte.showCircles()
                     pass
-
+                
                 case 4:
+                    print("Triangulos:")
+                    carte.showTriangles()
+                    pass
+
+                case 5:
                     print("Poligonos:")
                     carte.showPolygons()
                     pass
@@ -117,8 +127,14 @@ while comando != 5:
                     carte.removeCircle(circulo_deletar)
                     print("Circulo deletado com sucesso!")
                     pass
-                
+
                 case 4:
+                    triangulo_deletar = input("Qual triangulo deseja deletar?")
+                    carte.removeTriangle(triangulo_deletar)
+                    print("Triangulo deletado com sucesso!")
+                    pass
+
+                case 5:
                     poligono_deletar = input("Qual poligono deseja deletar?")
                     carte.removePolygon(poligono_deletar)
                     print("Poligono deletado com sucesso!")
