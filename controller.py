@@ -22,6 +22,7 @@ class CartesianBoard():
     def inserPonto(self, ponto : Point):
 
         self.pontos[ponto.nome]= ponto
+        
 
         lista_pontos = []
 
@@ -39,7 +40,7 @@ class CartesianBoard():
         # Adicionar um campo 'id' ao dicionário representando o número de identificação
         ver = vars(ponto)
         ver['id'] = len(lista_pontos) + 1  # Assume que os IDs começam de 1 e aumentam
-
+        ver['_Point__nome'] = "ponto" + str(ver['id'])
         # Adicionar o dicionário à lista
         lista_pontos.append(ver)
 
