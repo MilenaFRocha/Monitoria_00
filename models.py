@@ -1,11 +1,15 @@
-class Point():
+import json
 
-    def __init__(self, x: int, y: int, n: int):
+class Point:
+    count = 0
+
+    def __init__(self, x: int, y: int):
+        Point.count += 1
         self.__x = x
         self.__y = y
-        self.__n = n
+        self.__nome = "ponto" + str(Point.count)
         
-
+        
     @property
     def coordinates(self):
         return (self.__x, self.__y)
@@ -14,13 +18,15 @@ class Point():
     def coordinates(self, coordinates):
         self.__x, self.__y = coordinates
 
-    @property
-    def n(self):
-        return self.__n
+    @property   
+    def nome(self):
+        return self.__nome
     
-    @n.setter
-    def n(self, n):
-        self.__n = n
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+        
+      
 
     @classmethod
     def pedir_x(self):
@@ -30,10 +36,7 @@ class Point():
     def pedir_y(self):
         return int(input("Digite o y do ponto:"))
     
-    @classmethod #nao preciso do ponto instanciado
-    def pedir_n(self):
-        return int(input("Digite o n do ponto: "))
-
+    
     def distance(self):
         return (self.__x**2 + self.__y**2)**0.5
     
@@ -53,10 +56,10 @@ class Point():
         return self.__x == other_point.__x and self.__y == other_point.__y
     
 class Line():
-    def __init__(self, point1: 'Point', point2: 'Point',n: int):
+    def __init__(self, point1: 'Point', point2: 'Point'):
         self.__point1 = point1
         self.__point2 = point2
-        self.__n = n
+      
         self.linhas = {}
 
     @property
@@ -67,13 +70,9 @@ class Line():
     def points(self, points):
         self.__point1, self.__point2 = points
 
-    @property
-    def n(self):
-        return self.__n
-    
-    @n.setter
-    def n(self, n):
-        self.__n = n
+    property   
+    def id(self):
+        return self.__id
 
     @classmethod
     def pedir_ponto_X_1(self):
@@ -95,12 +94,6 @@ class Line():
     def pedir_ponto2(self):
         return int(input("Digite o segundo ponto: "))
     
-    @classmethod #nao preciso do ponto instanciado
-    def pedir_n(self):
-        return int(input("Digite o n da linha: "))
-
-
-
     def length(self):
         return round(self.__point1.distance_to(self.__point2), 2)
     
@@ -113,12 +106,12 @@ class Line():
                   (self.__point1.coordinates[0] - self.__point2.coordinates[0]), 2)
         b = round(self.__point1.coordinates[1] - a * self.__point1.coordinates[0], 2)
         return f'y = {a}x + {b}'
+    
 
 class Circle():
-    def __init__(self, center: 'Point', radius: int, n: int):
+    def __init__(self, center: 'Point', radius: int):
         self.__center = center
         self.__radius = radius
-        self.__n = n
         self.circulos = {}
 
     @property
@@ -137,14 +130,11 @@ class Circle():
     def radius(self, radius):
         self.__radius = radius
 
-    @property
-    def n(self):
-        return self.__n
-    
-    @n.setter
-    def n(self, n):
-        self.__n = n
+    property   
+    def id(self):
+        return self.__id
 
+    
     @classmethod
     def pedir_ponto(self):
         return int(input("Digite o ponto: "))
@@ -153,11 +143,6 @@ class Circle():
     def pedir_raio(self):
         return int(input("Digite o raio: "))
     
-    @classmethod #nao preciso do ponto instanciado
-    def pedir_n(self):
-        return int(input("Digite o n do circulo: "))
-
-
     def area(self):
         return round(3.14 * self.__radius ** 2, 2)
 
@@ -172,11 +157,11 @@ class Circle():
     
 
 class Triangle():
-    def __init__(self, point1: 'Point', point2: 'Point', point3: 'Point', n: int):
+    def __init__(self, point1: 'Point', point2: 'Point', point3: 'Point'):
         self.__point1 = point1
         self.__point2 = point2
         self.__point3 = point3
-        self.__n = n
+      
         self.triangles = {}
     
     def __str__(self):
@@ -190,17 +175,14 @@ class Triangle():
     def points(self, points):
         self.__point1, self.__point2, self.__point3 = points
 
-    @property
-    def n(self):
-        return self.__n
-    
-    @n.setter
-    def n(self, n):
-        self.__n = n
+    property   
+    def id(self):
+        return self.__id
 
-    @classmethod #nao preciso do ponto instanciado
-    def pedir_n(self):
-        return int(input("Digite o n do triangulo: "))
+    
+    
+  
+      
 
 # triagulo = Triangle(Point(1,2,1), Point(2,3,2), Point(3,4,3), 1)
 # print(triagulo)
@@ -213,9 +195,9 @@ class Triangle():
 from typing import List
 
 class Polygon():
-    def __init__(self, lines: List['Line'], n: int):
+    def __init__(self, lines: List['Line']):
         self.__lines = lines
-        self.__n = n
+      
         self.poligonos = {}
 
     @property
@@ -230,18 +212,12 @@ class Polygon():
     def n(self) -> int:
         return self.__n
 
-    @n.setter
-    def n(self, n: int):
-        self.__n = n
+    
+      
 
     @classmethod
     def pedir_lista_linhas(self):
         return int(input("Digite o x do ponto: "))
-    
-    @classmethod #nao preciso do ponto instanciado
-    def pedir_n(self):
-        return int(input("Digite o n do poligono: "))
-
 
     def length(self) -> float:
         total_length = 0

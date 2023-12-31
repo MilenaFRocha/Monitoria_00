@@ -1,5 +1,7 @@
 from models import Point, Line, Circle, Polygon, Triangle
+import json
 
+     
 class CartesianBoard():
 
 
@@ -13,17 +15,48 @@ class CartesianBoard():
         self.triangles={}
         self.polygons= {}
         
-    
+
+
+
 
     def inserPonto(self, ponto : Point):
+
+        self.pontos[ponto.nome]= ponto
+
+        lista_pontos = []
+
+        # Abrir o arquivo JSON para leitura
+        with open(r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\database.json', 'r') as json_file:
+            # Carregar os dados existentes do arquivo
+           lista_pontos = json.load(json_file)
+
         
-        self.pontos["ponto" + str(ponto.n)]= ponto
+
+
+        # Criar um novo objeto Point
+       
+
+        # Adicionar um campo 'id' ao dicionário representando o número de identificação
+        ver = vars(ponto)
+        ver['id'] = len(lista_pontos) + 1  # Assume que os IDs começam de 1 e aumentam
+
+        # Adicionar o dicionário à lista
+        lista_pontos.append(ver)
+
+        # Abrir o arquivo JSON para escrita
+        with open('contagem.json', 'w') as count_file:
+            json.dump(Point.count, count_file)
+
+        with open(r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\database.json', 'w') as json_file:
+            # Escrever os dados atualizados de volta ao arquivo
+            json.dump(lista_pontos, json_file, indent=2)
+                
 
     def criar_inserir_ponto(self):
         x = Point.pedir_x()
         y = Point.pedir_y()
-        n = Point.pedir_n()
-        ponto = Point(x, y, n)
+      
+        ponto = Point(x, y)
         self.inserPonto(ponto)
         return ponto 
 
