@@ -27,7 +27,7 @@ class TelaCreateForms():
         print("| 1 -> Ponto               |")
         print("| 2 -> Linha               |")
         print("| 3 -> Circulo             |")
-        print("| 4 -> Triangulo             |")
+        print("| 4 -> Triangulo           |")
         print("| 5 -> Poligono            |")
         print("| 6 -> Sair                |")
         print("|__________________________|")

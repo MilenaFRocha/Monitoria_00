@@ -21,40 +21,21 @@ while comando != 5:
                 case 1:
                 
                     carte.criar_inserir_ponto()
-                    pass
+                
 
                 case 2:
-                    ponto1 = carte.criar_inserir_ponto()
-                    ponto2 = carte.criar_inserir_ponto()
-                    n = Line.pedir_n()
-                    linha = Line(ponto1, ponto2, n)
-                    carte.inserLine(linha)
+                    carte.criar_inserir_linha()
+                
                     pass
 
                 case 3:
-                    ponto = carte.criar_inserir_ponto()
-                    raio = Circle.pedir_raio()
-                    n = Circle.pedir_n()
-                    circulo = Circle(ponto, raio, n)
-                    carte.inserCircle(circulo)
+                    carte.criar_inserir_circulo()
                     pass
                 
                 case 4:
-                    ponto1 = carte.criar_inserir_ponto()
-                    ponto2 = carte.criar_inserir_ponto()
-                    ponto3 = carte.criar_inserir_ponto()
-                    n = Triangle.pedir_n()
-                    triangulo = Triangle(ponto1, ponto2, ponto3,n)
-                    carte.inserTriangle(triangulo)
+                    carte.criar_inserir_triangulo()
                 case 5:
-                    pontos = []
-                    numero = int(input("Quantos lados tem o poligono?"))
-                    for i in range(numero):
-                        ponto = carte.criar_inserir_ponto()
-                        pontos.append(ponto)
-                    n = Polygon.pedir_n()
-                    poligono = Polygon(pontos, n)
-                    carte.inserPolygon(poligono)
+                    carte.criar_inserir_poligono()
 
                     pass
 
