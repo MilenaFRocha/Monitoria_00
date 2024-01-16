@@ -9,6 +9,8 @@ class Point:
         self.__y = y
         
     
+ 
+    
     def to_json(self):
         return {'x': self.__x, 'y': self.__y}
     
@@ -27,6 +29,8 @@ class Point:
         ponto = Point(x,y)
         return ponto
     
+ 
+
     @property
     def coordinates(self):
         return (self.__x, self.__y)
@@ -38,6 +42,10 @@ class Point:
     @property   
     def nome(self):
         return self.__nome
+    
+    @classmethod
+    def type(self):
+        return 'Point'
     
     @nome.setter
     def nome(self, nome):
@@ -71,7 +79,10 @@ class Line():
         self.__point2 = point2
         
         
-        
+    @classmethod
+    def type(self):
+        return 'Line'
+    
     def to_json(self):
         return {
             'ponto1': self.__point1.to_json(),
@@ -125,7 +136,9 @@ class Circle():
         raio = Circle.pedir_raio()
         circulo = Circle(ponto1, raio)
         return circulo
-    
+    @classmethod
+    def type(self):
+        return 'Circle'
     @property
     def center(self):
         return f' O circulo tem o seu centro  {self.__center}'
@@ -177,7 +190,10 @@ class Triangle():
         self.__point2 = point2
         self.__point3 = point3
       
-      
+    @classmethod
+    def type(self):
+        return 'Triangle'
+    
     def criar_forma(self):
         ponto1 = self.criar_ponto()
         ponto2 = self.criar_ponto()
@@ -222,7 +238,9 @@ class Polygon:
         else:
             # Se não for um dicionário, assumimos que é um iterável de objetos Point
             self.__pontos = list(pontos)
-
+    @classmethod
+    def type(self):
+        return 'Polygon'
     def criar_forms(self):
         pontos =[]
         numero = int(input("Quantos lados tem o poligono?"))

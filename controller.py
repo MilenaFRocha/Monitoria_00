@@ -7,13 +7,13 @@ class CartesianBoard():
 
 
 
-    def __init__(self):
+    def __init__(self, caminho_ponto, caminho_linha, caminho_circulo, caminho_triangulo, caminho_poligono):
         
-        self.caminho_ponto = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databasePoint.json'
-        self.caminho_linha = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseLine.json'
-        self.caminho_circulo = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseCircle.json'
-        self.caminho_triangulo = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseTriangle.json'
-        self.caminho_poligono = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databasePolygon.json'
+        self.caminho_ponto = caminho_ponto
+        self.caminho_linha = caminho_linha
+        self.caminho_circulo = caminho_circulo
+        self.caminho_triangulo = caminho_triangulo
+        self.caminho_poligono = caminho_poligono
         pass
 
     
@@ -181,37 +181,12 @@ class CartesianBoard():
         self.salvar_json(lista_poligonos,self.caminho_poligono)
         
         
-    def showPontos(self):
+   
 
-        lista_pontos = self.abrir_json(self.caminho_ponto)
-        for ponto in lista_pontos:
-            print(ponto['_Point__nome'])
-        
-                
+    def show_form(self, caminho, classe_forma):
+        lista_formas = self.abrir_json(caminho)
+        for forma in lista_formas:
+            print(forma[f'_{classe_forma}__nome'])
 
-    
-    def showLines(self):
-        lista_linhas = self.abrir_json(self.caminho_linha)
-        for linha in lista_linhas :
-             print(linha['_Line__nome'])
-        
-        
-    def showCircles(self):
-        lista_circulos = self.abrir_json(self.caminho_circulo)  
-        for circulo in lista_circulos:
-            
-            print(circulo['_Circle__nome'])
-
-    def showTriangles(self):
-                
-                lista_triangulos = self.abrir_json(self.caminho_triangulo)
-                for triangulo in lista_triangulos:
-                     print(triangulo['_Triangle__nome'])
-
-    def showPolygons(self):
-
-            lista_poligonos = self.abrir_json(self.caminho_poligono)
-            for poligono in lista_poligonos:
-                 print(poligono['_Polygon__nome'])
 
   

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "_Polygon__pontos": [
+      {
+        "x": 3,
+        "y": 4
+      },
+      {
+        "x": 5,
+        "y": 6
+      }
+    ],
+    "id": 2,
+    "_Polygon__nome": "poligono2"
+  }
+]

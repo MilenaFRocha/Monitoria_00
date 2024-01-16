@@ -4,7 +4,12 @@ from controller import CartesianBoard
 
 telaform = TelaCreateForms()
 telamain = TelaMain()
-carte=CartesianBoard()
+caminho_ponto = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databasePoint.json'
+caminho_linha = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseLine.json'
+caminho_circulo = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseCircle.json'
+caminho_triangulo = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databaseTriangle.json'
+caminho_poligono = r'C:\Users\milen\OneDrive\Documentos\Monitoria (teórica)\Projeto 1\databasePolygon.json'
+carte=CartesianBoard(caminho_ponto,caminho_linha,caminho_circulo,caminho_triangulo,caminho_poligono)
 
 comando = -1
 while comando != 5:
@@ -49,27 +54,27 @@ while comando != 5:
             match opcao :
                 case 1:
                     print("Pontos:")
-                    carte.showPontos()
+                    carte.show_form(carte.caminho_ponto,Point.type())
                     pass
 
                 case 2:
                     print("Linhas:")
-                    carte.showLines()
+                    carte.show_form(carte.caminho_linha,Line.type())
                     pass
 
                 case 3:
                     print("Circulos:")
-                    carte.showCircles()
+                    carte.show_form(carte.caminho_circulo,Circle.type())
                     pass
                 
                 case 4:
                     print("Triangulos:")
-                    carte.showTriangles()
+                    carte.show_form(carte.caminho_triangulo,Triangle.type())
                     pass
 
                 case 5:
                     print("Poligonos:")
-                    carte.showPolygons()
+                    carte.show_form(carte.caminho_poligono,Polygon.type())
                     pass
 
         case 3:
