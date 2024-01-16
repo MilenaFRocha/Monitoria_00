@@ -1,3 +1,4 @@
+from typing import List
 
 class Point:
     
@@ -7,14 +8,24 @@ class Point:
         self.__x = x
         self.__y = y
         
-        
     
-    
-    # @property
-    # def id(self):
-    #     return Point.count
     def to_json(self):
         return {'x': self.__x, 'y': self.__y}
+    
+    @classmethod
+    def pedir_x(self):
+        return int(input("Digite o x do ponto: "))
+    
+    @classmethod
+    def pedir_y(self):
+        return int(input("Digite o y do ponto:"))
+    
+    @classmethod
+    def criar_forma(self):
+        x = Point.pedir_x()
+        y = Point.pedir_y()
+        ponto = Point(x,y)
+        return ponto
     
     @property
     def coordinates(self):
@@ -32,16 +43,6 @@ class Point:
     def nome(self, nome):
         self.__nome = nome
         
-      
-
-    @classmethod
-    def pedir_x(self):
-        return int(input("Digite o x do ponto: "))
-    
-    @classmethod
-    def pedir_y(self):
-        return int(input("Digite o y do ponto:"))
-    
     
     def distance(self):
         return (self.__x**2 + self.__y**2)**0.5
@@ -78,6 +79,12 @@ class Line():
             'nome': self.__nome,  # Não chamamos to_json() aqui, pois presume-se que __nome seja uma string
         }
     
+    def criar_forma(self):
+         ponto1 = self.criar_ponto()
+         ponto2 = self.criar_ponto()
+         linha = Line(ponto1, ponto2)
+         return linha
+    
     @property
     def points(self):
         return (self.__point1, self.__point2)
@@ -86,11 +93,6 @@ class Line():
     def points(self, points):
         self.__point1, self.__point2 = points
 
-    # property   
-    # def id(self):
-    #     return self.__id
-
-   
     
     @classmethod
     def pedir_ponto2(self):
@@ -111,14 +113,19 @@ class Line():
     
 
 class Circle():
-    count = 0
+    
 
     def __init__(self, center: 'Point', radius: int):
         self.__center = center
         self.__radius = radius
-        Circle.count += 1
-        self.__nome = "circulo" + str(Circle.count)
+        
 
+    def criar_forma(self):
+        ponto1 = self.criar_ponto()
+        raio = Circle.pedir_raio()
+        circulo = Circle(ponto1, raio)
+        return circulo
+    
     @property
     def center(self):
         return f' O circulo tem o seu centro  {self.__center}'
@@ -163,16 +170,20 @@ class Circle():
 
 class Triangle():
         
-    count = 0
+    
 
     def __init__(self, point1: 'Point', point2: 'Point', point3: 'Point'):
         self.__point1 = point1
         self.__point2 = point2
         self.__point3 = point3
-        Triangle.count += 1
-        self.__nome = "triangulo" + str(Triangle.count)
       
-        
+      
+    def criar_forma(self):
+        ponto1 = self.criar_ponto()
+        ponto2 = self.criar_ponto()
+        ponto3 = self.criar_ponto()
+        triangulo = Triangle(ponto1,ponto2,ponto3)
+        return triangulo   
     
     def __str__(self):
         return f'Triangle{self.__n} has ({self.__point1},{self.__point2},{self.__point3})'
@@ -202,7 +213,7 @@ class Triangle():
 
     
 # lista de linhas
-from typing import List
+
 class Polygon:
     def __init__(self, pontos):
         if isinstance(pontos, dict):
@@ -212,7 +223,14 @@ class Polygon:
             # Se não for um dicionário, assumimos que é um iterável de objetos Point
             self.__pontos = list(pontos)
 
-
+    def criar_forms(self):
+        pontos =[]
+        numero = int(input("Quantos lados tem o poligono?"))
+        for i in range(numero):
+            ponto =self.criar_ponto()
+            pontos.append(ponto)
+        poligono = Polygon(pontos)
+        return poligono
         
        
     @property

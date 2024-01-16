@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "_Triangle__point1": {
+      "x": 5,
+      "y": 6
+    },
+    "_Triangle__point2": {
+      "x": 7,
+      "y": 8
+    },
+    "_Triangle__point3": {
+      "x": 9,
+      "y": 0
+    },
+    "_Triangle__nome": "triangulo2",
+    "id": 2
+  }
+]

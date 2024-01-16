@@ -1,30 +1,6 @@
 [
   {
     "_Line__point1": {
-      "x": 6,
-      "y": 6
-    },
-    "_Line__point2": {
-      "x": 6,
-      "y": 6
-    },
-    "id": 1,
-    "_Line__nome": "linha1"
-  },
-  {
-    "_Line__point1": {
-      "x": 4,
-      "y": 5
-    },
-    "_Line__point2": {
-      "x": 6,
-      "y": 7
-    },
-    "id": 2,
-    "_Line__nome": "linha2"
-  },
-  {
-    "_Line__point1": {
       "x": 3,
       "y": 4
     },
@@ -32,31 +8,7 @@
       "x": 5,
       "y": 6
     },
-    "id": 3,
-    "_Line__nome": "linha3"
-  },
-  {
-    "_Line__point1": {
-      "x": 7,
-      "y": 7
-    },
-    "_Line__point2": {
-      "x": 7,
-      "y": 7
-    },
-    "id": 4,
-    "_Line__nome": "linha4"
-  },
-  {
-    "_Line__point1": {
-      "x": 3,
-      "y": 3
-    },
-    "_Line__point2": {
-      "x": 3,
-      "y": 3
-    },
-    "id": 6,
-    "_Line__nome": "linha6"
+    "id": 2,
+    "_Line__nome": "linha2"
   }
 ]
