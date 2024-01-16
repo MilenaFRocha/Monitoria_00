@@ -131,57 +131,14 @@ class CartesianBoard():
          self.inserir_poligono(poligono)
          return poligono
 
-
-    
         
-    
-    def removePonto(self, nome):
-        lista_pontos = self.abrir_json(self.caminho_ponto)
-        nova_lista_pontos = [ponto for ponto in lista_pontos if ponto['_Point__nome'] != nome]
-        self.salvar_json(nova_lista_pontos, self.caminho_ponto)
-
-    def removeLine(self, nome):
-        # Remove a linha do JSON de linhas
-        lista_linhas = self.abrir_json(self.caminho_linha)
-        for i in range(len(lista_linhas)):
-            if lista_linhas[i]['_Line__nome'] == nome:
-                del lista_linhas[i]
-
-                break
-        self.salvar_json(lista_linhas,self.caminho_linha)
-
-    
-    def removeCircle(self, nome):
-        
-        lista_circulos = self.abrir_json(self.caminho_circulo)
-        for i in range(len(lista_circulos)):
-             if lista_circulos[i]['_Circle__nome'] == nome:
-                  del lista_circulos[i]
-
+    def remove_forma(self, caminho, classe_forma,nome):
+        lista_formas = self.abrir_json(caminho)
+        for i in range(len(lista_formas)):
+             if lista_formas[i][f'_{classe_forma}__nome'] == nome:
+                  del lista_formas[i]     
                   break
-        self.salvar_json(lista_circulos,self.caminho_circulo)
-
-    def removeTriangle(self, nome):
-            
-            lista_triangulos = self.abrir_json(self.caminho_triangulo)
-            for i in range(len(lista_triangulos)):
-                 if lista_triangulos[i]['_Triangle__nome'] == nome:
-                      del lista_triangulos[i]
-                      break
-            self.salvar_json(lista_triangulos,self.caminho_triangulo)
-
-    
-    def removePolygon(self, nome):
-        
-        lista_poligonos = self.abrir_json(self.caminho_poligono)
-        for i in range(len(lista_poligonos)):
-             if lista_poligonos[i]['_Polygon__nome'] == nome:
-                  del lista_poligonos[i]     
-                  break
-        self.salvar_json(lista_poligonos,self.caminho_poligono)
-        
-        
-   
+        self.salvar_json(lista_formas,caminho)
 
     def show_form(self, caminho, classe_forma):
         lista_formas = self.abrir_json(caminho)

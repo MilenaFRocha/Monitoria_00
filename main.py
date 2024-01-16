@@ -99,30 +99,30 @@ while comando != 5:
             match opcao :
                 case 1:
                     ponto_deletar = input("Qual ponto deseja deletar?")
-                    carte.removePonto(ponto_deletar)
+                    carte.remove_forma(carte.caminho_ponto, Point.type(), ponto_deletar)
                     print("Ponto deletado com sucesso!")
                     pass
                 case 2: 
                     line_deletar = input("Qual linha deseja deletar?")
-                    carte.removeLine(line_deletar)
+                    carte.remove_forma(carte.caminho_linha,Line.type(),line_deletar)
                     print("Linha deletada com sucesso!")
                     pass
 
                 case 3:
                     circulo_deletar = input("Qual circulo deseja deletar?")
-                    carte.removeCircle(circulo_deletar)
+                    carte.remove_forma(carte.caminho_circulo, Circle.type(), circulo_deletar)
                     print("Circulo deletado com sucesso!")
                     pass
 
                 case 4:
                     triangulo_deletar = input("Qual triangulo deseja deletar?")
-                    carte.removeTriangle(triangulo_deletar)
+                    carte.remove_forma(carte.caminho_triangulo, Triangle.type(),triangulo_deletar)
                     print("Triangulo deletado com sucesso!")
                     pass
 
                 case 5:
                     poligono_deletar = input("Qual poligono deseja deletar?")
-                    carte.removePolygon(poligono_deletar)
+                    carte.remove_forma(carte.caminho_poligono,Polygon.type(),poligono_deletar)
                     print("Poligono deletado com sucesso!")
                     pass
         case 5 :
