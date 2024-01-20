@@ -3,6 +3,36 @@
     "_Point__x": 2,
     "_Point__y": 3,
     "id": 2,
-    "_Point__nome": "ponto2"
+    "_Point__nome": "Point2"
+  },
+  {
+    "_Point__x": 2,
+    "_Point__y": 3,
+    "id": 3,
+    "_Point__nome": "Point3"
+  },
+  {
+    "_Point__x": 2,
+    "_Point__y": 3,
+    "id": 4,
+    "_Point__nome": "Point4"
+  },
+  {
+    "_Point__x": 2,
+    "_Point__y": 3,
+    "id": 5,
+    "_Point__nome": "Point5"
+  },
+  {
+    "_Point__x": 2,
+    "_Point__y": 2,
+    "id": 6,
+    "_Point__nome": "Point6"
+  },
+  {
+    "_Point__x": 2,
+    "_Point__y": 3,
+    "id": 7,
+    "_Point__nome": "Point7"
   }
 ]

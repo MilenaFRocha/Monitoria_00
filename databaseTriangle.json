@@ -1,18 +1,18 @@
 [
   {
     "_Triangle__point1": {
-      "x": 5,
-      "y": 6
+      "x": 2,
+      "y": 3
     },
     "_Triangle__point2": {
-      "x": 7,
-      "y": 8
+      "x": 4,
+      "y": 5
     },
     "_Triangle__point3": {
-      "x": 9,
-      "y": 0
+      "x": 6,
+      "y": 7
     },
-    "_Triangle__nome": "triangulo2",
-    "id": 2
+    "id": 2,
+    "_Triangle__nome": "Triangle2"
   }
 ]

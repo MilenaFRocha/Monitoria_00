@@ -23,12 +23,18 @@ class Point:
         return int(input("Digite o y do ponto:"))
     
     @classmethod
-    def criar_forma(self):
+    def criar_ponto(self):
         x = Point.pedir_x()
         y = Point.pedir_y()
         ponto = Point(x,y)
         return ponto
     
+    @classmethod
+    def criar_forma(self):  
+         x = Point.pedir_x()
+         y = Point.pedir_y()
+         ponto = Point(x,y)
+         return ponto
  
 
     @property
@@ -57,7 +63,7 @@ class Point:
     
     #print(ponto) -> Point(1,2,1)
     def __str__(self):
-        return f'Point-{self.__n} has ({self.__x},{self.__y})'
+        return f'Point'
     
     #como colocar que o otherpoint é um point?
     def distance_to(self, other_point: 'Point'):
@@ -90,9 +96,10 @@ class Line():
             'nome': self.__nome,  # Não chamamos to_json() aqui, pois presume-se que __nome seja uma string
         }
     
-    def criar_forma(self):
-         ponto1 = self.criar_ponto()
-         ponto2 = self.criar_ponto()
+    @classmethod
+    def criar_linha(self):
+         ponto1 = Point.criar_ponto()
+         ponto2 = Point.criar_ponto()
          linha = Line(ponto1, ponto2)
          return linha
     
@@ -114,13 +121,20 @@ class Line():
     
     #usa o str do ponto para printar
     def __str__(self):
-        return f'Line-{self.__n} has ({self.__point1},{self.__point2})'
+        return f'Line'
     
     def equation(self):
         a = round((self.__point1.coordinates[1] - self.__point2.coordinates[1]) /
                   (self.__point1.coordinates[0] - self.__point2.coordinates[0]), 2)
         b = round(self.__point1.coordinates[1] - a * self.__point1.coordinates[0], 2)
         return f'y = {a}x + {b}'
+    
+    @classmethod
+    def criar_forma(self):
+         ponto1 = Point.criar_ponto()
+         ponto2 = Point.criar_ponto()
+         linha = Line(ponto1, ponto2)
+         return linha
     
 
 class Circle():
@@ -132,7 +146,7 @@ class Circle():
         
 
     def criar_forma(self):
-        ponto1 = self.criar_ponto()
+        ponto1 = Point.criar_ponto()
         raio = Circle.pedir_raio()
         circulo = Circle(ponto1, raio)
         return circulo
@@ -175,10 +189,17 @@ class Circle():
         return round(2 * 3.14 * self.__radius, 2)
 
     def __str__(self):
-        return f'Circle has ({self.__center},{self.__radius})'
+        return f'Circle'
 
     def is_inside(self, point: 'Point'):
         return self.__center.distance_to(point) <= self.__radius
+    
+    @classmethod
+    def criar_forma(self):    
+         ponto1 = Point.criar_ponto()
+         raio = Circle.pedir_raio()
+         circulo = Circle(ponto1, raio)
+         return circulo
     
 
 class Triangle():
@@ -193,16 +214,16 @@ class Triangle():
     @classmethod
     def type(self):
         return 'Triangle'
-    
+    @classmethod
     def criar_forma(self):
-        ponto1 = self.criar_ponto()
-        ponto2 = self.criar_ponto()
-        ponto3 = self.criar_ponto()
+        ponto1 = Point.criar_ponto()
+        ponto2 = Point.criar_ponto()
+        ponto3 = Point.criar_ponto()
         triangulo = Triangle(ponto1,ponto2,ponto3)
         return triangulo   
     
     def __str__(self):
-        return f'Triangle{self.__n} has ({self.__point1},{self.__point2},{self.__point3})'
+        return f'Triangle'
     
     @property
     def points(self):
@@ -211,6 +232,9 @@ class Triangle():
     @points.setter
     def points(self, points):
         self.__point1, self.__point2, self.__point3 = points
+
+    
+    
 
     # property   
     # def id(self):
@@ -241,14 +265,7 @@ class Polygon:
     @classmethod
     def type(self):
         return 'Polygon'
-    def criar_forms(self):
-        pontos =[]
-        numero = int(input("Quantos lados tem o poligono?"))
-        for i in range(numero):
-            ponto =self.criar_ponto()
-            pontos.append(ponto)
-        poligono = Polygon(pontos)
-        return poligono
+  
         
        
     @property
@@ -260,7 +277,8 @@ class Polygon:
         self.__pontos = pontos
 
    
-
+    def __str__(self):
+        return f'Polygon'
     
     @classmethod
     def pedir_lista_linhas(self):
@@ -271,6 +289,12 @@ class Polygon:
         for line in self.__lines:
             total_length += line.length()
         return round(total_length, 2)
-
-    def __str__(self) -> str:
-        return f'Polygon-{self.__n} has {len(self.__lines)} lines'
+    @classmethod
+    def criar_forma(self):
+        pontos =[]
+        numero = int(input("Quantos lados tem o poligono?"))
+        for i in range(numero):
+            ponto =Point.criar_ponto()
+            pontos.append(ponto)
+        poligono = Polygon(pontos)
+        return poligono

@@ -25,22 +25,22 @@ while comando != 5:
             match opcao :
                 case 1:
                 
-                    carte.criar_inserir_ponto()
+                    carte.criar_inserir_forma(Point, carte.caminho_ponto)
                 
 
                 case 2:
-                    carte.criar_inserir_linha()
+                    carte.criar_inserir_forma(Line,carte.caminho_linha)
                 
                     pass
 
                 case 3:
-                    carte.criar_inserir_circulo()
+                    carte.criar_inserir_forma(Circle,carte.caminho_circulo)
                     pass
                 
                 case 4:
-                    carte.criar_inserir_triangulo()
+                    carte.criar_inserir_forma(Triangle,carte.caminho_triangulo)
                 case 5:
-                    carte.criar_inserir_poligono()
+                    carte.criar_inserir_forma(Polygon,carte.caminho_poligono)
 
                     pass
 
